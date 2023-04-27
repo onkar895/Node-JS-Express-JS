@@ -8,3 +8,4 @@ const batch = ['20', '30', '40']
 console.log(`Students list in students module: ${students} and batches ${batch}`)
 
 module.exports = { students, batch}
+// Use the exports keyword to make properties and methods available outside the module file.
