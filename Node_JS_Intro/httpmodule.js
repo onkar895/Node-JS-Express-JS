@@ -8,6 +8,9 @@
 const http = require('http')
 const fs = require('fs')
 
+// Load the full build.
+const _ = require('lodash')
+
 http.createServer((req, res) => {
 
   // Request:
@@ -42,13 +45,13 @@ http.createServer((req, res) => {
       res.statusCode = 200
       console.log(`This page is now on screen: ${path}`)
       break
-    case '/404':
-      path += '404.html'
-      res.statusCode = 400
+    case '/contact':
+      path += 'Contact.html'
+      res.statusCode = 200
       console.log(`This page is now on screen: ${path}`)
       break
     default:
-      path += 'Hello.html'
+      path += '404.html'
       console.log(`This page is now on screen: ${path}`)
       break
   }
@@ -62,8 +65,8 @@ http.createServer((req, res) => {
       res.end()
     }
   })
-}).listen(8080, () => {
-  console.log('Listening for request done on port 8080')
+}).listen(3000, 'localhost', () => {
+  console.log('Listening for request done on port 3000')
 })
 // listen: Start a server listening for connections.
 
@@ -78,3 +81,14 @@ http.createServer((req, res) => {
 //     the response body will be plain text and if content type is html then it displays in html format.
 // 5. After that, we write a response 'Hello World!' to the client and then end it
 // 6. We set the web server to listen at port - 8080
+
+// lodash Example 1:
+const randomNumber = _.random(100, 200)
+console.log('Random number between 100 to 200: ' + randomNumber)
+
+// Example 2"
+const Greet = () => {
+  console.log('welcome to the project')
+}
+
+Greet()

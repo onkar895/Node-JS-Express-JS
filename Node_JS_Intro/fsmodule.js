@@ -2,6 +2,7 @@
 
 // 1. The Node.js file system module enables the file system to work on a computer.
 // 2. We use the require() method to include the file system module in the web application.
+// 3. (file system) module which allows you to read and write files.
 
 const fs = require('fs')
 // console.log(fs)
