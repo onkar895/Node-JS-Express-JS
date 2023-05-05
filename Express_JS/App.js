@@ -11,7 +11,17 @@ App.get('/', (req, res) => {
   // res.send('<h2>This is a Home Page</h2>')
   // res.sendFile('./Views/index.html', {root: __dirname})
   // If u want to log the current directory on the console: then we can use __dirname here
-  res.render('index')
+
+  // Adding Blogs
+  const blogs = [
+    { blogtitle: ' Arena ', previewtext: ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  ', blogcontent: ' This is a Blog Content of the page ', author: ' Onkar ' },
+    { blogtitle: ' Top Players ', previewtext: ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', blogcontent: ' This is a Blog Content of the page ', author: ' Rishi ' },
+    { blogtitle: ' Trending Games ', previewtext: ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', blogcontent: ' This is a Blog Content of the page ', author: ' Manish ' },
+    { blogtitle: ' Basic Tutorial ',  previewtext: ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.', blogcontent: ' This is a Blog Content of the page ', author: ' Harshal '}
+  ]
+
+  res.render('index', { title: 'Home', blogs})
+// here we are passing a title as Home while rendering the index.ejs page
 // route for index page
 // The res.render() function is used to render a view and sends the rendered HTML string to the client. 
 })
@@ -19,13 +29,21 @@ App.get('/', (req, res) => {
 App.get('/about', (req, res) => {
   // res.send('<h2>This is a About Page</h2>')
   // res.sendFile('./Views/about.html', {root: __dirname})
-  res.render('about')
+  res.render('about', {title: 'About'})
 })
 
 App.get('/contact', (req, res) => {
   //   res.send('<h2>This is a Hello Page</h2>')
   // res.sendFile('./Views/Hello.html', {root: __dirname})
-  res.render('Contact')
+  res.render('Contact', {title: 'Contact'})
+})
+
+App.get('/teams', (req, res) => {
+  res.render('Teams', {title: 'Teams'})
+})
+
+App.get('/blogs/create', (req, res) => {
+  res.render('createBlog', {title: 'CreateBlog'})
 })
 
 // App.get('/hello', (req, res) => {
@@ -38,7 +56,7 @@ App.get('/contact', (req, res) => {
 // This middleware function will be executed only when the base of the requested path matches the defined path.
 App.use((req, res) => {
   // res.sendFile('./Views/404.html', {root: __dirname})
-  res.render('404')
+  res.render('404', {title: 'Error'})
 })
 
 App.listen(8080, () => {

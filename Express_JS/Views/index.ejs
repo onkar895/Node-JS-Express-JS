@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Html request response</title>
+    <title>Pheixon | <%= title %></title>
+
+    <style>
+
+        h3 {
+              color: rgb(242, 103, 4);
+              text-align: center;
+        }
+
+        .blog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+
+         .blog-title {
+            background-color: black;
+            color: white;
+         }
+    </style>
+
 </head>
 <body>
 
-    <nav>
+    <!-- Declaring partials here -->
+     <% const name = 'ALL BLOGS' %>
+
+    <!-- <nav>
         <div class="Site-title">
             <a href="#">Pheixon</a> <br><br>
             <span>This is Esport's Gaming Site</span>
@@ -17,12 +42,38 @@
               <li><a href="/">Home</a></li>
               <li><a href="/about">About Us</a></li>
               <li><a href="/contact">Contact Us</a></li>
+          
         </ul>
-    </nav>
+        <header>
+            <h3>Welcome to home page which uses partials</h3>
+        </header>
 
-    <div class="content">
-          <h2>All Blogs</h3>
+    </nav> -->
+
+
+
+      <%- include ('./Partials/Nav.ejs') %>
+
+         <h3><%= name %></h3> 
+
+     <div class="blog-content">
+
+          <% if(blogs.length > 0) { %> 
+                <% blogs.forEach(blogs => {  %>
+                   <h3 class="blog-title"> Title: <%= blogs.blogtitle %></h3> 
+                   <p class="preview-text"><u>Description:</u> <%= blogs.previewtext %></p>
+                   <p class="blog-body"><u>Content:</u> <%= blogs.blogcontent %></p>    
+                   <p class="blog-author"><u>Author:</u> <%= blogs.author %></p>     
+                <% } ) %>   
+            <%  } else { %>
+                <p>There is no blog present here but you can create the one by going inside create blog <a href="/blogs/create">Craete Blog</a> </p>
+            <% } %>          
+          <!-- Outputs the value into the template  -->
     </div>
 
+  
+    <!-- Includes are relative to the template with the include call.  -->
+
+   
 </body>
 </html>

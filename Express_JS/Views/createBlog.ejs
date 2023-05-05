@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pheixon | <%= title %></title>
+</head>
+<body>
+ 
+     <%- include ('./Partials/Nav.ejs') %>
+     <!-- Includes are relative to the template with the include call.  -->
+
+    <div class="create-blog">
+         <h3>Add a New Blog: </h3>
+          <form>
+            <label htmlFor="title">Blog Title</label>
+            <input type="text" name="title" id="title">   <br/>
+            <label htmlFor="previewtext">Preview Text</label>
+            <input type="text" name="previewtext" id="previewtext" required/>   <br/>
+            <label htmlFor="blogcontent">Blog Content</label>
+            <textarea type="text" name="blogcontent" id="blogcontent" required ></textarea>  <br/>
+            <label htmlFor="author">Author</label>
+            <input type="text" name="author" id="author">   <br/>
+            <button>Submit</button>
+          </form>
+    </div>
+
+     
+</body>
+</html>
