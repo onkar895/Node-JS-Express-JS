@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pheixon | <%= title %></title>
+
+     <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,10 +26,12 @@
         </ul>
     </nav> -->
     
-     <h2>Welcome to Conatct Page </h2>
+
      
        <%- include ('./Partials/Nav.ejs') %>
+          <h2>Welcome to Conatct Page </h2>
+           <%- include ('./Partials/Footer.ejs') %>
     <!-- Includes are relative to the template with the include call.  -->
-     
+         
 </body>
 </html>

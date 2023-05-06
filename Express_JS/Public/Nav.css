@@ -1,0 +1,76 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(39, 59, 76);
+  border-radius: 5px;
+}
+
+.Site-title li {
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  list-style: none;
+}
+
+.Site-title li:hover {
+  background-color: rgb(246, 218, 143);
+  color: rgb(39, 59, 76);
+  border-radius: 5px;
+  padding: 4px;
+  transition: 0.4s;
+  border: 1px solid rgb(246, 218, 143);
+}
+
+.Navbar ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.Navbar li a:hover {
+  background-color: rgb(246, 218, 143);
+  color: rgb(39, 59, 76);
+  padding: 4px;
+  transition: 0.4s;
+  border: 1px solid rgb(246, 218, 143);
+  border-radius: 5px;
+}
+
+.Navbar li a {
+  color: white;
+  text-decoration: none;
+}
+
+.Create-Account {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.Create-Account button {
+  background-color: rgb(246, 218, 143);
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.Create-Account button a {
+  color: black;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.Create-Account button:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.title {
+  color: rgb(18, 39, 67);
+  text-align: center;
+  font-size: 1.5rem;
+}

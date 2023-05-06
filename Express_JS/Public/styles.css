@@ -1,0 +1,51 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: rgb(147, 190, 202);
+}
+
+.create-blog h3 {
+  text-align: center;
+}
+
+.create-blog form {
+  text-align: center;
+  border: 2px solid;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px 40px 20px 20px;
+}
+
+.create-blog label {
+  display: block;
+  margin-top: 24px;
+}
+
+.create-blog input,
+.create-blog textarea {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+textarea {
+  height: 120px;
+}
+
+.create-blog button {
+  margin-top: 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: rgb(239, 204, 143);
+  color: black;
+  padding: 6px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+h5 {
+  text-align: center;
+}

@@ -7,6 +7,8 @@ App.set('view engine', 'ejs') //  Set EJS as templating engine
 
 // App.set('Views', 'MyViews')   : It will set the Views folder as MyViews
 
+App.use(express.static('Public'))
+
 App.get('/', (req, res) => {
   // res.send('<h2>This is a Home Page</h2>')
   // res.sendFile('./Views/index.html', {root: __dirname})
@@ -38,12 +40,39 @@ App.get('/contact', (req, res) => {
   res.render('Contact', {title: 'Contact'})
 })
 
+// Custom Middleware: 
+// Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.
+// This middleware function will be executed only when the base of the requested path matches the defined path.
+App.use((req, res, next) => {
+  // res.sendFile('./Views/404.html', {root: __dirname})
+  console.log('New Request is made')
+  console.log('Host:', req.hostname)
+  console.log('Path:', req.path)
+  console.log('Method:', req.method)
+
+  next()
+// This nest() function indicates that we are finished with this particular part now you can move to the next part.
+})
+
+App.use((req, res, next) => {
+  console.log('This is the next middleware')
+  next()
+})
+
 App.get('/teams', (req, res) => {
   res.render('Teams', {title: 'Teams'})
 })
 
 App.get('/blogs/create', (req, res) => {
   res.render('createBlog', {title: 'CreateBlog'})
+})
+
+App.get('/login', (req, res) => {
+  res.render('Login')
+})
+
+App.get('/signup', (req, res) => {
+  res.render('SignUp')
 })
 
 // App.get('/hello', (req, res) => {
@@ -56,7 +85,7 @@ App.get('/blogs/create', (req, res) => {
 // This middleware function will be executed only when the base of the requested path matches the defined path.
 App.use((req, res) => {
   // res.sendFile('./Views/404.html', {root: __dirname})
-  res.render('404', {title: 'Error'})
+  res.status(404).render('404', { title: 'Error' })
 })
 
 App.listen(8080, () => {
