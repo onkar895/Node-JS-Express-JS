@@ -15,6 +15,7 @@ body {
   border: none;
   border-radius: 10px;
   max-width: 350px;
+  height: 520px;
   margin: 0 auto;
   padding: 20px 40px 20px 20px;
 }
@@ -22,7 +23,7 @@ body {
 .create-blog label {
   text-align: start;
   display: block;
-  margin-top: 15px;
+  margin: 7px 0;
   color: rgb(12, 12, 12);
 }
 
@@ -30,7 +31,7 @@ body {
 .create-blog textarea {
   width: 100%;
   display: block;
-  margin: 8px 0;
+  margin: 0;
   padding: 6px;
 }
 
@@ -40,7 +41,7 @@ textarea {
 
 .create-blog button {
   width: 370px;
-  margin-top: 20px;
+  margin-top: 25px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   background-color: rgb(17, 63, 83);
