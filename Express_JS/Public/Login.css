@@ -1,12 +1,13 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background-image: url("Images/Img4.jpg");
+  background-image: url("Images/Img7.jpg");
+  margin: 0;
 }
 
 h3 {
   text-align: center;
-  color: rgb(241, 236, 231);
+  color: rgb(6, 6, 6);
 }
 
 form {
@@ -38,9 +39,9 @@ form input {
 
 form button {
   margin-top: 15px;
-  background-color: rgb(7, 150, 252);
+  background-color: rgb(17, 63, 83);
   color: rgb(249, 244, 244);
-  padding: 5px;
+  padding: 3px;
   border: 0;
   border-radius: 5px;
   font-size: 1em;
