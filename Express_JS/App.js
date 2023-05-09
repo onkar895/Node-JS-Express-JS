@@ -8,6 +8,7 @@ App.set('view engine', 'ejs') //  Set EJS as templating engine
 // App.set('Views', 'MyViews')   : It will set the Views folder as MyViews
 
 App.use(express.static('Public'))
+// The express.static() function takes one argument, which is the name of the directory where the static assets are located. In this case, the directory is "Public".
 
 App.get('/', (req, res) => {
   // res.send('<h2>This is a Home Page</h2>')
@@ -40,9 +41,12 @@ App.get('/contact', (req, res) => {
   res.render('Contact', {title: 'Contact'})
 })
 
-// Custom Middleware: 
+// Middleware:
 // Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.
 // This middleware function will be executed only when the base of the requested path matches the defined path.
+// Middleware is a function that executes before the final request handler and can be used to modify the request or response objects, perform authentication, logging, error handling, and many other tasks.
+
+// 1st Middleware:
 App.use((req, res, next) => {
   // res.sendFile('./Views/404.html', {root: __dirname})
   console.log('New Request is made')
@@ -51,9 +55,20 @@ App.use((req, res, next) => {
   console.log('Method:', req.method)
 
   next()
-// This nest() function indicates that we are finished with this particular part now you can move to the next part.
+// This next() function indicates that we are finished with this particular part now you can move to the next part.
 })
 
+// Explaination :
+// In this specific example, the middleware function is defined using app.use() method, which adds the middleware to the application's request handling pipeline.
+// This function takes a callback function with three parameters: req, res, and next.
+// The req parameter represents the HTTP request object that contains information about the incoming request, such as the request method, URL, headers, and parameters.
+// The res parameter represents the HTTP response object that will be sent back to the client, and it allows modifying the response status, headers, and body.
+// The next parameter is a function that, when called, passes control to the next middleware function in the pipeline.
+// It is used to chain multiple middleware functions together, with each middleware function modifying the request or response objects in some way.
+// In this specific middleware function, the console logs the information about the incoming request, such as the hostname, path, and HTTP method,
+// and then calls the next function to pass control to the next middleware function or final request handler.
+
+// 2nd Middleware:
 App.use((req, res, next) => {
   console.log('This is the next middleware')
   next()

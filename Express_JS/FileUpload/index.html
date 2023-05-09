@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+
+ <style>
+    body {
+        background-color: bisque;
+        font-size: 1.2rem;
+      
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1.2rem;
+    }
+
+    input, button {
+        font-size: 1.1rem;
+        width: max-content;
+        color: red;
+        padding: 3px;
+    }
+ </style>
+
+</head>
+<body>
+
+    <h2>Node JS File Upload</h2>
+
+<form id="uploadform" enctype="multipart/form-data">
+    <!-- This 'multipart/form-data' is the method of encryption of  the form data -->
+    <!-- This is specially used when the file uploading is required -->
+
+    <input type="file" id="myFiles" accept="images/*" multiple>
+    <button>Submit</button>
+</form>
+
+<script>
+    const form = document.getElementById('uploadform')
+    const sendFiles = async() => {
+           const myFlies = document.getElementById*'myFiles'
+           const formData = new FormData()
+           Object.keys(myFlies).forEach(key => {
+                formData.append(myFlies.item(key).name), myFlies.item(key)
+           })
+    }
+
+    const response = await fetch("http://localhost:3050/upload", {
+      method: 'POST', 
+      body: formData
+    })
+   
+ 
+   const json = await response.json()
+   console.log(json)
+
+   const h2 = document.querySelector('h2')
+   h2.textContent = json?.status
+   
+   const h3 = document.querySelector('h3')
+   h3.textContent = json?.message
+
+   form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    sendFiles()
+   })
+   
+</script>
+    
+</body>
+</html>
