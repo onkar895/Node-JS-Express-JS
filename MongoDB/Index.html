@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB</title>
+</head>
+<body>
+       <h2>MongoDB:</h2>
+             <ul>
+                <li>MongoDB is a document-oriented database. It uses the concept of the document to store data, which is more flexible than the row concept in the relational database management system (RDBMS).</li>
+                <li>MongoDB is a document database. It stores data in a type of JSON format called BSON.</li>
+                <li>A record in MongoDB is a document, which is a data structure composed of key value pairs similar to the structure of JSON objects.</li>
+                <li>Records in a MongoDB database are called documents, and the field values may include numbers, strings, booleans, arrays, or even nested documents.</li>
+                <li>A document allows you to represent complex hierarchical relationships with a single record.</li>
+                <li>MongoDB is a NoSQL (non-relational) database.</li>
+                <li>NoSQL simply means a non-relational database i.e. there is no table-like relational database structure instead there is a totally different mechanism for storing and retrieving data.</li>
+                <li>This format of storage is called BSON and is very much similar to JSON.</li>
+                 <h2>Document database:</h2>
+                <li>The document database fetches and accumulates data in forms of key-value pairs but here, the values are called as Documents. A document can be stated as a complex data structure. </li>
+                <li>Document here can be a form of text, arrays, strings, JSON, XML, or any such format.</li>
+                <li>The use of nested documents is also very common. It is very effective as most of the data created is usually in the form of JSON and is unstructured.</li>
+
+                <h2>Terminologies: </h2>
+                <li>A MongoDB Database can be called as the container for all the collections.</li>
+                <li>Collection is a bunch of MongoDB documents. It is similar to tables in RDBMS.</li>
+                <li>Document is made of fields. It is similar to a tuple in RDBMS, but it has dynamic schema here. Documents of the same collection need not have the same set of fields</li>
+             </ul>
+
+             <h2>SQL:  MySQL</h2>
+             <ul>
+                <li>TABLE</li>
+                <li>ROWS</li>
+                <li>COLUMNS</li>
+             </ul>
+
+             <h2>NoSQL : MongoDB </h2>
+              <ul>
+                <li>COLLECTIONS</li>
+                <li>DOCUMENTS</li>
+             </ul>
+
+             <h2>Collections:</h2>
+             <ul>
+                <li>Each collection will be used to store particular kind of data.</li>
+                <li>Collection is a bunch of MongoDB documents. It is similar to tables in RDBMS.</li>
+                <h3>Types of collections:</h3>
+                <li><strong> User Collection: </strong> User Collections will be used to store different kinf of users document. E.g: UserId, Username etc. </li>
+                <li><strong> Blog Collection:</strong> In the Blog collections, we can have all the attributes and all the blog documents</li>
+             </ul>
+
+             <h2>Cocuments:</h2>
+             <ul>
+               <li>Document is made of fields. It is similar to a tuple in RDBMS, but it has dynamic schema here. Documents of the same collection need not have the same set of fields </li>
+             </ul>
+
+             <h2>Connect to mongodb:</h2>
+             <p>const dbURI = mongodb+srv://<onkarkarale0541 >:<D-war541895>@node-tutorial.bszq1wq.mongodb.net/?retryWrites=true&w=majority;</D-war541895>
+
+             <h2>Mongoose: Model and Schema</h2>
+             <p>ODM Library: Object Document Mapping Library</p>
+
+             <ul>
+               <li>User Model: User.get(), User.searchuserbyid()</li>
+               <li>Blog Model: Blog.name, Blog.Username</li>
+             </ul>
+
+             <h2>Model and Schema: </h2>
+             <h3>Schema:</h3>
+             <pre>
+                   Blog Schema: 
+
+                   title (string), required
+                   preview-text (string), required
+                   body (string), required
+
+                   User Schema : 
+ 
+                  name (string), required
+                  email (string), required
+                  bio (string), required
+                  age (int)
+             </pre>
+
+             <h3>Model:</h3>
+             <p>Allows us to communicate with the database collections </p>
+</body>
+</html>
