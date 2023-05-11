@@ -1,6 +1,23 @@
 const express = require('express')
+// const { default: mongoose } = require('mongoose')
+const mongoose = require('mongoose')
+// const { result } = require('lodash')
+
+const Blogs = require('./Models/Blog')
 
 const App = express()
+
+// Connect to MongoDB:
+const dbURI = 'mongodb+srv://onkarkarale0541:D-war541895@node-tutorial.bszq1wq.mongodb.net/?retryWrites=true&w=majority'
+
+// mongoose.connect(dbURI, {
+//   useNewurlParse: true,
+//   useUnifiedTopology: true
+// })
+
+mongoose.connect(dbURI)
+  .then((result) => console.log('Connected to the database successfully'))
+  .catch((err) => console.log(err))
 
 // Here we are setting the view engine as 'ejs' that, means we are using 'ejs' view engine
 App.set('view engine', 'ejs') //  Set EJS as templating engine
@@ -74,6 +91,22 @@ App.use((req, res, next) => {
   next()
 })
 
+App.get('/add-blog', (req, res) => {
+  const blog = new Blogs({
+    title: 'new blog',
+    preview: 'This is a new blog with mongodb',
+    body: 'This is the blog body'
+  })
+
+  blog.save()
+    .then((result) => {
+      res.send(result)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
+
 App.get('/teams', (req, res) => {
   res.render('Teams', {title: 'Teams'})
 })
@@ -106,6 +139,7 @@ App.use((req, res) => {
 App.listen(8080, () => {
   console.log('Server is running on port 8080 ')
 })
+
 // Explanation :
 
 // We are importing the Express module and declaring its instance as an app.
