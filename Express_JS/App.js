@@ -8,19 +8,20 @@ const Blogs = require('./Models/Blog')
 const App = express()
 
 // Connect to MongoDB:
-const dbURI = 'mongodb+srv://onkarkarale0541:D-war541895@node-tutorial.bszq1wq.mongodb.net/?retryWrites=true&w=majority'
+// const dbURI = 'mongodb+srv://onkar895:4ERdmyK52PtNmDnH@cluster1.qupchsy.mongodb.net/?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://onkar895:4ERdmyK52PtNmDnH@cluster1.qupchsy.mongodb.net/Node-Tutorial?retryWrites=true&w=majority'
 
 // mongoose.connect(dbURI, {
-//   useNewurlParse: true,
+//   useNewurlParser: true,
 //   useUnifiedTopology: true
-// })
+// }) 
 
 mongoose.connect(dbURI)
   .then((result) => console.log('Connected to the database successfully'))
   .catch((err) => console.log(err))
 
 // Here we are setting the view engine as 'ejs' that, means we are using 'ejs' view engine
-App.set('view engine', 'ejs') //  Set EJS as templating engine
+App.set('view engine', 'EJS') //  Set EJS as templating engine
 
 // App.set('Views', 'MyViews')   : It will set the Views folder as MyViews
 
@@ -62,6 +63,9 @@ App.get('/contact', (req, res) => {
 // Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.
 // This middleware function will be executed only when the base of the requested path matches the defined path.
 // Middleware is a function that executes before the final request handler and can be used to modify the request or response objects, perform authentication, logging, error handling, and many other tasks.
+
+// Middleware for encoding the form data:
+App.use(express.urlencoded({ extended: true }))
 
 // 1st Middleware:
 App.use((req, res, next) => {
@@ -113,6 +117,10 @@ App.get('/teams', (req, res) => {
 
 App.get('/blogs/create', (req, res) => {
   res.render('createBlog', {title: 'CreateBlog'})
+})
+
+App.post('/', (req, res) => {
+  console.log(req.body)
 })
 
 App.get('/login', (req, res) => {
